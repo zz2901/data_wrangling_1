@@ -6,6 +6,8 @@ output: github_document
 
 ```{r,echo=FALSE}
 library(tidyverse)
+library(readxl)
+library(haven)
 ```
 
 
@@ -17,4 +19,69 @@ Let's import data using the 'readr' package
 litters_df<-read_csv("data/FAS_litters.csv")
 litters_df<- janitor::clean_names(litters_df)
 ```
+
+look at the data
+
+```{r}
+
+head(litters_df)
+tail(litters_df)
+
+```
+
+```{r, eval=FALSE}
+View(litters_df)
+```
+
+```{r}
+skimr::skim(litters_df)
+```
+
+'read_csv' options
+add missing value definition and skip 2 lines
+
+```{r, eval= FALSE}
+read_csv("data/FAS_litters.csv",na=c("","NA",999,88),skip=2)
+```
+
+## Other file formats
+
+```{r}
+mlb_df<-read_excel("data/mlb11.xlsx")
+```
+
+```{r,eval=FALSE}
+View(mlb_df)
+```
+
+```{r}
+lotr_words_df <-
+  read_excel(
+    "data/LotR_Words.xlsx",
+    range="B3:D6"
+    
+  )
+```
+
+## Still more formats
+
+read in a sas file
+
+```{r}
+pulse_df<-read_sas("data/public_pulse_data.sas7bdat")
+
+## Data export
+```
+
+
+```{r}
+write_csv(lotr_words_df,file="results/lotr_words_df.csv")
+```
+
+## why not base R???
+
+```{r}
+dont_do_this_df<-read_csv("data/FAS_litters.csv")
+```
+
 
