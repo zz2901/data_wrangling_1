@@ -452,6 +452,9 @@ happy with life, but there are some cases where the placeholder is
 necessary. For example, to regress `wt_gain` on `pups_born_alive`, you
 might use:
 
+can use piping with non-tydiverse functions. Use `.` for `data=` in
+those functions
+
 ``` r
 litters_data %>%
   lm(wt_gain ~ pups_born_alive, data = .) %>%

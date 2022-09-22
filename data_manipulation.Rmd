@@ -238,6 +238,8 @@ litters_data =
 
 In this example, the dataset argument is called `dat` in `janitor::clean_names`, `.data` in the `dplyr` functions, and `data` in `drop_na` -- which is definitely confusing. In the majority of cases (and everywhere in the tidyverse) you'll elide the first argument and be happy with life, but there are some cases where the placeholder is necessary. For example, to regress `wt_gain` on `pups_born_alive`, you might use:
 
+can use piping with non-tydiverse functions. Use `.` for `data=` in those functions
+
 ```{r}
 litters_data %>%
   lm(wt_gain ~ pups_born_alive, data = .) %>%
