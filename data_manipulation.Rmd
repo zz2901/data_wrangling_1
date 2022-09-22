@@ -1,0 +1,4 @@
+---
+title: "Data manipulation with 'dplyr'"
+output: github_document
+---
